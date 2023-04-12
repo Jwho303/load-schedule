@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Loadshedding Schedule App</h1>
+      <h1>Loadshedding Schedule App new</h1>
       <h2>Schedule</h2>
       <TestPage />
     </div>
