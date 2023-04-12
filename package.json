@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --warn-on-fatal",
     "predeploy": "npm run build",
     "deploy": "npm run build && xcopy /e /i /y /q src docs",
     "test": "react-scripts test",
