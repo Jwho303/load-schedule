@@ -5,17 +5,17 @@ import { Person } from "./types";
 import TestPage from "./TestPage";
 
 const App = () => {
-  const [people, setPeople] = useState<Person[]>(data);
+ // const [people, setPeople] = useState<Person[]>(data);
 
-  const handleAddPerson = (person: Person) => {
-    setPeople([...people, person]);
-  };
+  // const handleAddPerson = (person: Person) => {
+  //   setPeople([...people, person]);
+  // };
 
   return (
     <div>
       <h1>Loadshedding Schedule App</h1>
       <h2>Schedule</h2>
-      <TestPage />
+      <Schedule />
     </div>
   );
 };
