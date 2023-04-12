@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import data from "./data.json";
 import { Person } from "./types";
 
@@ -10,7 +10,7 @@ const isAffected = (person: Person, time: string) => {
 };
 
 const Schedule = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+ // const [selectedDate, setSelectedDate] = useState(new Date());
 
   const rows = [];
   for (let i = 0; i < 48; i++) {

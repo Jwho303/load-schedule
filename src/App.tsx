@@ -15,7 +15,7 @@ const App = () => {
     <div>
       <h1>Loadshedding Schedule App</h1>
       <h2>Schedule</h2>
-      <Schedule />
+      <TestPage />
     </div>
   );
 };

@@ -5,11 +5,11 @@ import { Person } from "./types";
 import TestPage from "./TestPage";
 
 const App = () => {
-  const [people, setPeople] = useState<Person[]>(data);
+ // const [people, setPeople] = useState<Person[]>(data);
 
-  const handleAddPerson = (person: Person) => {
-    setPeople([...people, person]);
-  };
+  // const handleAddPerson = (person: Person) => {
+  //   setPeople([...people, person]);
+  // };
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Status, LoadsheddingStage, Search, Province } from 'eskom-loadshedding-api';
+import { Status, LoadsheddingStage, Search, Province } from '../src/custom_modules/eskom-loadshedding-api'
 
 const TestPage = () => {
   const [loadsheddingStatus, setLoadsheddingStatus] = useState<LoadsheddingStage>();
