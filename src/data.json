@@ -1,0 +1,21 @@
+[
+    {
+      "name": "John Smith",
+      "municipality": "Cape Town",
+      "suburb": "Green Point",
+      "city": "Cape Town"
+    },
+    {
+      "name": "Jane Doe",
+      "municipality": "Johannesburg",
+      "suburb": "Sandton",
+      "city": "Johannesburg"
+    },
+    {
+      "name": "Bob Johnson",
+      "municipality": "Durban",
+      "suburb": "Umhlanga",
+      "city": "Durban"
+    }
+  ]
+  
