@@ -1,40 +1,37 @@
 import React, { useState } from 'react';
-import { Status, LoadsheddingStage, Search, Province } from '../src/custom_modules/eskom-loadshedding-api'
 
 const TestPage = () => {
-  const [loadsheddingStatus, setLoadsheddingStatus] = useState<LoadsheddingStage>();
-  const [municipalities, setMunicipalities] = useState<string[]>([]);
-  const [suburbs, setSuburbs] = useState<string[]>([]);
 
-  const checkLoadsheddingStatus = () => {
-    Status.getStatus().then((status: LoadsheddingStage) => {
-      console.log('Current status:', status);
-      setLoadsheddingStatus(status);
-    });
+  const [loadsheddingStatus, setLoadsheddingStatus] = useState<number>();
+  const checkLoadsheddingStatus = async () => {
+  const requestOptions: RequestInit = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
+    redirect: 'follow',
+    mode: 'no-cors',
   };
-
-  const searchMunicipalities = () => {
-    Search.getMunicipalities(Province.WESTERN_CAPE).then((municipalities) => {
-      console.log('Western Cape municipalities:', municipalities.map((el) => el.name));
-      setMunicipalities(municipalities.map((el) => el.name));
-    });
-  };
-
-  const searchSuburbs = () => {
-    Search.getMunicipalitySuburbs(336 /* Beaufort West's id */, 'Aard' /* Search term */).then((suburbs) => {
-      console.log('Filtered suburbs in Beaufort West:', suburbs.map((el) => el.name));
-      setSuburbs(suburbs.map((el) => el.name));
-    });
+  
+    try {
+      const response = await fetch('https://loadshedding.eskom.co.za/LoadShedding/GetStatus', requestOptions);
+      console.log("response", response);
+      //console.log("response type", typeof(response));
+      const content = await response.text(); // Get the response content as text
+      console.log("Response content:", content); // Log the response content
+      //const stage = JSON.parse(content); 
+      //console.log("stage", stage);
+      //setLoadsheddingStatus(stage);
+    } catch (error) {
+      console.log('error', error);
+    }
   };
 
   return (
     <div>
       <button onClick={checkLoadsheddingStatus}>Check Loadshedding Status</button>
       <p>Current Loadshedding Status: {loadsheddingStatus}</p>
-      <button onClick={searchMunicipalities}>Search Municipalities</button>
-      <p>Western Cape Municipalities: {municipalities.join(', ')}</p>
-      <button onClick={searchSuburbs}>Search Suburbs</button>
-      <p>Filtered Suburbs in Beaufort West: {suburbs.join(', ')}</p>
     </div>
   );
 };
